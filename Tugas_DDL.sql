@@ -88,3 +88,18 @@ constraint fk_Transaction_DetailsTransactions foreign key (transaction_id) refer
 constraint fk_Transaction_DetailsProducts foreign key (product_id) references products(id)
 );
 
+create table product_descriptions (
+product_id int not null primary key auto_increment,
+description text,
+created_at datetime default current_timestamp,
+updated_at datetime default current_timestamp,
+constraint fk_Product_DescriptionsProducts foreign key (product_id) references products(id)
+);
+
+create table payment_method_descriptions(
+payment_method_id int not null primary key auto_increment,
+description varchar(255),
+created_at datetime default current_timestamp,
+updated_at datetime default current_timestamp,
+constraint fk_Payment_Method_DescriptionsPayment_Methods foreign key (payment_method_id) references payment_methods(id)
+);
