@@ -103,3 +103,4 @@ created_at datetime default current_timestamp,
 updated_at datetime default current_timestamp,
 constraint fk_Payment_Method_DescriptionsPayment_Methods foreign key (payment_method_id) references payment_methods(id)
 );
+
