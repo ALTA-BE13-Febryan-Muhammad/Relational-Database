@@ -150,8 +150,8 @@ users where gender = "M";
 
 -- b. 
 select id, name 
-from 
-products where id = 3;
+from products 
+where id = 3;
 
 -- c. 
 select * 
@@ -168,10 +168,23 @@ like name = "%a%";
 
 select *
 from users
-where created_at in (select created_at from users where created_at <= current_date() and created_at >= 2022-11-03)
+where created_at in (select created_at from users where created_at <= now() and created_at >= 2022-11-03)
 and name in (select name from users where name like "%a%");
 
--- d.
-select * from users
-where gender 
+-- d. ?????
+select sum(gender)
+from users
+where gender = "F"
+; 
+
+-- e.
+select * from users order by name asc;
+
+-- f.
+select *
+from products
+where 
+
+
+
 
