@@ -148,12 +148,12 @@ select name,
 gender from 
 users where gender = "M";
 
--- b. 
+-- 2. b. 
 select id, name 
 from products 
 where id = 3;
 
--- c. 
+-- 2. c. 
 select * 
 from users 
 where name = "%a%"
@@ -171,19 +171,41 @@ from users
 where created_at in (select created_at from users where created_at <= now() and created_at >= 2022-11-03)
 and name in (select name from users where name like "%a%");
 
--- d. ?????
-select sum(gender)
+-- 2. d. ?????
+select count(id) as total
 from users
 where gender = "F"
 ; 
 
--- e.
+-- 2. e.
 select * from users order by name asc;
 
--- f.
+-- 2. f.
 select *
 from products
-where 
+where id = 3;
+
+-- 3. a. update
+update products set
+name = "product dummy"
+where id = 1;
+
+-- 3. b.
+update transaction_details set
+qty = 3
+where product_id = 1;
+
+-- 4. a delete
+delete from products
+where id = 1
+;
+
+-- 4. b
+delete from products
+where product_type_id = 1
+;
+
+
 
 
 
